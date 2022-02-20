@@ -1,0 +1,84 @@
+<html>
+  <head>
+    <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta aframe-injected="" name="mobile-web-app-capable" content="yes" />
+    <meta aframe-injected="" name="theme-color" content="black" />
+  </head>
+  <body>
+    <a-scene loading-screen="dotsColor: #DF5532; backgroundColor: #ffffff00">
+    
+      <a-plane position="0 0 -4" rotation="-90 0 0" width="4" height="4" color="#7BC8A4"></a-plane>
+      <a-sky color="#ECECEC"></a-sky>
+      
+      <a-assets>
+        <!-- Replace the model file below with a link to your model -->
+        <!-- For example: https://pachecod.github.io/models/testmodels/gingerbread.glb -->
+        <!-- Or https://pachecod.github.io/models/testmodels/bench.glb -->
+
+        <a-asset-item
+          id="model"
+          src="https://oliveingithub.github.io/carrot cake/carrot/scene.gltf"
+        ></a-asset-item>
+      </a-assets>
+
+      <a-entity
+        gltf-model="#model"
+        position="-0.06076 0.87736 -3.61176"
+        rotation=" 0.16 21.85 18"
+        scale="0.002 0.002 0.002"
+                
+      ></a-entity>
+
+      <a-entity
+        light="color: #c2c2c2; type: ambient; intensity: 0.25"
+        data-aframe-default-light=""
+        aframe-injected=""
+      ></a-entity>
+
+      <!-- Basic movement and teleportation  -->
+      <a-entity
+        id="cameraRig"
+        movement-controls="constrainToNavMesh: false;"
+        navigator="cameraRig: #cameraRig; cameraHead: #head; collisionEntities: .collision; ignoreEntities: .clickable"
+        position="0 2 0"
+        rotation="0 0 0"
+      >
+        <!-- camera -->
+        <a-entity
+          id="head"
+          camera="active: true"
+          position="0 10 15"
+          look-controls="pointerLockEnabled: true; reverseMouseDrag: false"
+        ></a-entity>
+
+        <!-- Left Controller -->
+        <a-entity
+          id="leftHand"
+          hand-controls="hand: left; handModelStyle: lowPoly; color: #15ACCF"
+          teleport-controls="cameraRig: #cameraRig; teleportOrigin: #head; button: trigger; curveShootingSpeed: 18; landingMaxAngle: 60"
+          visible="true"
+        ></a-entity>
+
+        <!-- Right Controller -->
+        <a-entity
+          id="rightHand"
+          hand-controls="hand: right; handModelStyle: lowPoly; color: #15ACCF"
+          laser-controls
+          raycaster="showLine: true; far: 10; interval: 0; objects: .clickable, a-link;"
+          line="color: #7cfc00; opacity: 0.5"
+          visible="true"
+        ></a-entity>
+      </a-entity>
+      
+       <a-cylinder src="https://oliveingithub.github.io/carrot%20cake/carrot%20cake.png" position="0 0 -4" radius="1.2" height="0.3" color="#F9E7AF"></a-cylinder>
+      <a-cylinder src="https://oliveingithub.github.io/carrot cake/frosting 2.png" position="0 0.2 -4" radius="1.2" height="0.1" color="white"></a-cylinder>
+      <a-cylinder src="https://oliveingithub.github.io/carrot%20cake/carrot%20cake.png" position="0 0.4 -4" radius="1.2" height="0.3" color="#F9E7AF"></a-cylinder>
+      <a-cylinder src="https://oliveingithub.github.io/carrot cake/frosting 2.png" position="0 0.6 -4" radius="1.2" height="0.1" color="white"></a-cylinder>
+      
+      
+    </a-scene>
+  </body>
+</html>
